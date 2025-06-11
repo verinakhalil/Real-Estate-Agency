@@ -80,3 +80,48 @@ The project follows these key steps:
 ## 📂 Project Structure
 
 The repository is organized as follows:
+├── config/ # Configuration files (e.g., config.json)
+├── data/
+│ ├── raw/ # Original raw input data (CSV files)
+├── docs/ # Documentation (presentation.pdf, info.txt, etc.)
+├── models/ # Trained ML models (model.pkl, MLmodel artifacts)
+├── reports/
+│ ├── dashboards/ # Power BI dashboards (dashboard.pbix)
+│ ├── figures/ # Images and diagrams (ERD.jpg, ML_pipeline.jpg)
+│ └── performance/ # Model performance data (TSV files)
+├── scripts/
+│ ├── dataflow/ # Azure Data Factory related scripts/configs/exports
+│ ├── etl/ # SQL scripts (ERD.sql, table_queries.sql)
+│ └── import.py # Python script for data ingestion to Azure SQL DB
+├── models/ # Specifies intentionally untracked files
+├── conda.yaml # Conda environment file (if used)
+├── python_env.yaml # Python environment file (if used)
+├── requirements.txt # Pip requirements file
+└── README.md # This file
+
+
+
+## ⚙️ Setup Guide
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <https://github.com/SayedELMASRY2/Real-Estate-analysis.git>
+   cd <repository-name>
+   Azure Setup:
+
+Ensure you have an active Azure subscription
+Provision the necessary resources: Azure SQL Database, Azure Data Factory, Azure Machine Learning workspace
+Configure firewall rules and access permissions as needed
+Configuration:
+
+Update connection strings and other parameters in config/config.json and relevant scripts (src/import.py, ADF linked services, etc.) to match your Azure environment
+Environment Setup:
+
+Install required Python packages 
+pip install -r requirements.txt
+Usage Instructions
+Data Ingestion: Run the Python script to upload data to Azure SQL DB:
+python src/import.py
+Data Transformation: Trigger the appropriate pipeline/dataflow within your Azure Data Factory instance
+Machine Learning: Navigate to your Azure ML workspace, locate the Automated ML experiment/pipeline, and run it
+Visualization: Open the dashboard.pbix file located in reports/dashboards/ using Power BI Desktop. Refresh the data connection to point to your Azure SQL Database
